@@ -1,10 +1,10 @@
 
 from solax.inverter import Inverter, InverterError
 from solax.inverters import XHybrid, X3, X3V34, X1, X1Mini, X1MiniV34,\
-     X1Smart, QVOLTHYBG33P, X1Boost
+     X1Smart, QVOLTHYBG33P, X1Boost, X1_V3
 
 # registry of inverters
-REGISTRY = [XHybrid, X3, X3V34, X1, X1Mini, X1MiniV34, X1Smart,
+REGISTRY = [X1_V3, XHybrid, X3, X3V34, X1, X1Mini, X1MiniV34, X1Smart,
             QVOLTHYBG33P, X1Boost]
 
 

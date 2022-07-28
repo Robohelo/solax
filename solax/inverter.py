@@ -105,7 +105,7 @@ class InverterPost(Inverter):
             base = 'http://{}:{}/?optType=ReadRealTimeData&pwd={}&'
             url = base.format(host, port, pwd)
         async with aiohttp.ClientSession() as session:
-            async with session.post(url, headers=headers) as req:
+            async with session.post(url,data="optType=ReadRealTimeData&pwd="+pwd, headers=headers) as req:
                 resp = await req.read()
 
         return cls.handle_response(resp)
