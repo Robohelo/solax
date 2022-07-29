@@ -12,6 +12,8 @@ _LOGGER = logging.getLogger(__name__)
 
 REQUEST_TIMEOUT = 5
 
+__version__ = "v0.2.11"
+
 
 async def rt_request(inv, retry, t_wait=0):
     """Make call to inverter endpoint."""
