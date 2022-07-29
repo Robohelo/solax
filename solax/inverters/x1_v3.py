@@ -1,6 +1,6 @@
 import voluptuous as vol
 from solax.inverter import InverterPost
-#from solax.utils import startswith
+from solax.utils import twoway_div10, div10, div100, to_signed
 
 
 class X1_V3(InverterPost):
@@ -25,37 +25,27 @@ class X1_V3(InverterPost):
     }, extra=vol.REMOVE_EXTRA)
 
     _sensor_map = {
-        'PV1 Current':                (0, 'A'),
-        'PV2 Current':                (1, 'A'),
-        'PV1 Voltage':                (2, 'V'),
-        'PV2 Voltage':                (3, 'V'),
+        'PV1 Current':                (5, 'A', div10),  # ok /10
+        #'PV2 Current':                (6, 'A', div10),  # ok /10
+        'PV1 Voltage':                (3, 'V', div10),  # ok /10
+        #'PV2 Voltage':                (4, 'V', div10),  # ok /10
 
-        'Output Current':             (4, 'A'),
-        'Network Voltage':            (5, 'V'),
-        'AC Power':                   (6, 'W'),
+        'Output Current':             (1, 'A', div10), # ok /10
+        'Network Voltage':            (0, 'V', div10), # ok /10
+        'AC Power':                   (48, 'W', to_signed), # ok    #Feed-In
 
-        'Inverter Temperature':       (7, 'C'),
-        'Today\'s Energy':            (8, 'kWh'),
-        'Total Energy':               (9, 'kWh'),
-        'Exported Power':             (10, 'W'),
-        'PV1 Power':                  (11, 'W'),
-        'PV2 Power':                  (12, 'W'),
+        'Inverter Temperature1':       (38, 'C', to_signed), # ok ? o. 41 o. 55
+        'Inverter Temperature2':       (41, 'C', to_signed), # ok ? o. 41 o. 55
+        'Inverter Temperature3':       (55, 'C', to_signed), # ok ? o. 41 o. 55
+        'Today\'s Energy':            (13, 'kWh', div10), # ok /10
+        'Total Energy':               (11, 'kWh', div10), # ok /10
+        'PV1 Power':                  (7, 'W'), # ok
+        #'PV2 Power':                  (8, 'W'), # ok
 
-        'Battery Voltage':            (13, 'V'),
-        'Battery Current':            (14, 'A'),
-        'Battery Power':              (15, 'W'),
-        'Battery Temperature':        (16, 'C'),
-        'Battery Remaining Capacity': (21, '%'),
+        'Total Feed-in Energy':       (50, 'kWh', div10),  # ok /10 on grid yield
+        'Total Consumption':          (52, 'kWh', div10), # ok /10
 
-        'Total Feed-in Energy':       (41, 'kWh'),
-        'Total Consumption':          (42, 'kWh'),
-
-        'Power Now':                  (43, 'W'),
-        'Grid Frequency':             (50, 'Hz'),
-
-        'EPS Voltage':                (53, 'V'),
-        'EPS Current':                (54, 'A'),
-        'EPS Power':                  (55, 'W'),
-        'EPS Frequency':              (56, 'Hz'),
+        'Power Now':                  (2, 'W', to_signed), # ok power inverter
+        'Grid Frequency':             (9, 'Hz', div100), # ok /100
     }
-    # pylint: enable=duplicate-code
+     # pylint: enable=duplicate-code
