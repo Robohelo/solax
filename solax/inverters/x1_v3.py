@@ -34,9 +34,9 @@ class X1_V3(InverterPost):
         'Network Voltage':            (0, 'V', div10), # ok /10
         'AC Power':                   (48, 'W', to_signed), # ok    #Feed-In
 
-        'Inverter Temperature1':       (38, 'C', to_signed), # ok ? o. 41 o. 55
-        'Inverter Temperature2':       (41, 'C', to_signed), # ok ? o. 41 o. 55
-        'Inverter Temperature3':       (55, 'C', to_signed), # ok ? o. 41 o. 55
+        'Inverter_val1':                   (38, 'C', to_signed), # ?
+        'Inverter_val2':                   (41, 'C', to_signed), # ?
+        'Inverter Temperature':       (55, 'C', to_signed), # ok ? o. 41 o. 55
         'Today\'s Energy':            (13, 'kWh', div10), # ok /10
         'Total Energy':               (11, 'kWh', div10), # ok /10
         'PV1 Power':                  (7, 'W'), # ok
