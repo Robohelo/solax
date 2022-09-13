@@ -1,6 +1,6 @@
 import voluptuous as vol
 from solax.inverter import InverterPost
-from solax.utils import twoway_div10, div10, div100, to_signed
+from solax.utils import div10, div100, to_signed, no_zero_div10
 
 
 class X1_V3(InverterPost):
@@ -25,27 +25,23 @@ class X1_V3(InverterPost):
     }, extra=vol.REMOVE_EXTRA)
 
     _sensor_map = {
-        'PV1 Current':                (5, 'A', div10),  # ok /10
-        #'PV2 Current':                (6, 'A', div10),  # ok /10
-        'PV1 Voltage':                (3, 'V', div10),  # ok /10
-        #'PV2 Voltage':                (4, 'V', div10),  # ok /10
+        'PV1 Current':                (5, 'A', div10),
+        'PV1 Voltage':                (3, 'V', div10),
 
-        'Output Current':             (1, 'A', div10), # ok /10
-        'Network Voltage':            (0, 'V', div10), # ok /10
-        'AC Power':                   (48, 'W', to_signed), # ok    #Feed-In
+        'Output Current':             (1, 'A', div10),
+        'Network Voltage':            (0, 'V', div10),
+        'AC Power':                   (48, 'W', to_signed),
 
-        'Inverter_val1':                   (38, 'C', to_signed), # ?
-        'Inverter_val2':                   (41, 'C', to_signed), # ?
-        'Inverter Temperature':       (55, 'C', to_signed), # ok ? o. 41 o. 55
-        'Today\'s Energy':            (13, 'kWh', div10), # ok /10
-        'Total Energy':               (11, 'kWh', div10), # ok /10
-        'PV1 Power':                  (7, 'W'), # ok
-        #'PV2 Power':                  (8, 'W'), # ok
+        'Operating Hours Counter':    (41, 'h', to_signed),
+        'Inverter Temperature':       (55, 'C', to_signed),
+        'Today\'s Energy':            (13, 'kWh', no_zero_div10),
+        'Total Energy':               (11, 'kWh', no_zero_div10),
+        'PV1 Power':                  (7, 'W'),
 
-        'Total Feed-in Energy':       (50, 'kWh', div10),  # ok /10 on grid yield
-        'Total Consumption':          (52, 'kWh', div10), # ok /10
+        'Total Feed-in Energy':       (50, 'kWh', no_zero_div10),
+        'Total Consumption':          (52, 'kWh', no_zero_div10),
 
-        'Power Now':                  (2, 'W', to_signed), # ok power inverter
-        'Grid Frequency':             (9, 'Hz', div100), # ok /100
+        'Power Now':                  (2, 'W', to_signed),
+        'Grid Frequency':             (9, 'Hz', div100),
     }
      # pylint: enable=duplicate-code

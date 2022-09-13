@@ -75,3 +75,9 @@ def twoway_div10(val, *_args, **_kwargs):
 
 def twoway_div100(val, *_args, **_kwargs):
     return to_signed(val, None) / 100
+
+def no_zero_div10(val, *_args, **_kwargs):
+    if val == 0:
+        return "NaN"
+    else:
+        return div10(val, *_args, **_kwargs)
