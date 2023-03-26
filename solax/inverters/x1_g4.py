@@ -48,7 +48,7 @@ class X1G4(Inverter):
             "Network Voltage": (0, Units.V, div10),
             "AC Power": (48, Units.W, to_signed),
 
-            "Operating Hours": (41, Units.H),
+#            "Operating Hours": (41, Units.H),
             "Inverter Temperature": (55, Units.C, to_signed),
             "Today's Energy": (13, Units.KWH, div10),
             "Total Energy": (11, Total(Units.KWH), div10),
