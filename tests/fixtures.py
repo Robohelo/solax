@@ -11,6 +11,7 @@ from tests.samples.expected_values import (
     X1_MINI_VALUES_V34,
     X1_SMART_VALUES,
     X1_VALUES,
+    X1G4_VALUES,
     X3_HYBRID_G4_VALUES,
     X3_HYBRID_VALUES,
     X3_VALUES,
@@ -22,6 +23,7 @@ from tests.samples.expected_values import (
 from tests.samples.responses import (
     QVOLTHYBG33P_RESPONSE_V34,
     X1_BOOST_AIR_MINI_RESPONSE,
+    X1G4_RESPONSE,
     X1_BOOST_RESPONSE,
     X1_HYBRID_G3_2X_MPPT_RESPONSE,
     X1_HYBRID_G3_RESPONSE,
@@ -85,6 +87,16 @@ INVERTERS_UNDER_TEST = [
         values=X1_HYBRID_G4_VALUES,
         headers=None,
         data="optType=ReadRealTimeData",
+    ),
+    InverterUnderTest(
+        uri="/",
+        method="POST",
+        query_string="optType=ReadRealTimeData",
+        response=X1G4_RESPONSE,
+        inverter=inverter.X1G4,
+        values=X1G4_VALUES,
+        headers=None,
+        data=None,
     ),
     InverterUnderTest(
         uri="/",

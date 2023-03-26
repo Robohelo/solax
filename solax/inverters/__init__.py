@@ -1,5 +1,6 @@
 from .qvolt_hyb_g3_3p import QVOLTHYBG33P
 from .x1 import X1
+from .x1_g4 import X1G4
 from .x1_boost import X1Boost
 from .x1_hybrid_gen4 import X1HybridGen4
 from .x1_mini import X1Mini
@@ -14,6 +15,7 @@ __all__ = [
     "QVOLTHYBG33P",
     "XHybrid",
     "X1",
+    "X1G4",
     "X1Mini",
     "X1MiniV34",
     "X1Smart",

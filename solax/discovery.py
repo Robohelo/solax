@@ -2,6 +2,7 @@ from solax.inverter import Inverter, InverterError
 from solax.inverters import (
     QVOLTHYBG33P,
     X1,
+    X1G4,
     X3,
     X3V34,
     X1Boost,
@@ -20,6 +21,7 @@ REGISTRY = [
     X3V34,
     X3HybridG4,
     X1,
+    X1G4,
     X1Mini,
     X1MiniV34,
     X1Smart,

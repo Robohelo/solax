@@ -13,6 +13,7 @@ class Units(Enum):
     C = "°C"
     HZ = "Hz"
     PERCENT = "%"
+    H = "h"
     NONE = ""
 
 

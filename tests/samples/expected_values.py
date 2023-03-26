@@ -292,7 +292,22 @@ X1_VALUES = {
     "EPS Power": 55,
     "EPS Frequency": 56,
 }
-
+X1G4_VALUES = {
+    "PV1 Current": 0.1,
+    "PV1 Voltage": 92.4,
+    "Output Current": .3,
+    "Network Voltage": 234.0,
+    "AC Power": 17,
+    "Operating Hours": 40,
+    "Inverter Temperature": 34,
+    "Today's Energy": 2.3,
+    "Total Energy": 13.2,
+    "PV1 Power": 12,
+    "Total Feed-in Energy": 132.4,
+    "Total Consumption": 101,
+    "Power Now": 2,
+    "Grid Frequency": 50.00,
+}
 X1_MINI_VALUES = {
     "PV1 Current": 0,
     "PV2 Current": 1,
