@@ -67,6 +67,7 @@ class InverterHttpClient:
         url = self.url + "?" + self.query if self.query else self.url
         data = self.data.encode("utf-8") if self.data else None
         async with aiohttp.ClientSession() as session:
+            print("send request" + data)
             async with session.post(url, headers=self.headers, data=data, timeout=(1, 5)) as req:
                 req.raise_for_status()
                 resp = await req.read()
