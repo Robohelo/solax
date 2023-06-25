@@ -17,6 +17,7 @@ from solax.inverters import (
 # registry of inverters
 REGISTRY = [
     X1G4
+    X3V34
 ]
 
 
